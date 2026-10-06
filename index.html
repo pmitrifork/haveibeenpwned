@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Har Jeg Været Pwned? — Tjek dit CPR-nummer</title>
+  <meta name="description" content="Humoristisk CPR-tjek inspireret af Have I Been Pwned. Spoiler: ja, det har du." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;600&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="grid-bg" aria-hidden="true"></div>
+
+  <header class="top">
+    <a class="logo" href="#">
+      <span class="logo-mark" aria-hidden="true">⚠</span>
+      <span class="logo-text">HarJegVæretPwned</span>
+    </a>
+    <p class="top-note">Næsten en rigtig tjeneste</p>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow">Danmarks mest “opdaterede” læk-database</p>
+      <h1 class="brand">HarJegVæret<span>Pwned</span></h1>
+      <p class="tagline">
+        Indtast dit CPR-nummer og find ud af, om dine data er blandt de
+        <strong>1.000.000.000</strong> poster i vores database.
+        (Spoiler: ja.)
+      </p>
+
+      <form class="check-form" id="check-form" autocomplete="off">
+        <label class="sr-only" for="cpr">CPR-nummer</label>
+        <div class="input-row">
+          <input
+            id="cpr"
+            name="cpr"
+            type="text"
+            inputmode="numeric"
+            maxlength="11"
+            placeholder="DDMMYY-XXXX"
+            spellcheck="false"
+          />
+          <button type="submit">Tjek</button>
+        </div>
+        <p class="form-hint">Vi sender intet nogen steder. Alt kører lokalt i din browser — stadig en dårlig idé at indtaste rigtige data for sjov.</p>
+      </form>
+    </section>
+
+    <section class="result" id="result" hidden>
+      <div class="result-banner" id="result-banner">
+        <p class="result-kicker" id="result-kicker">Åh nej — pwned!</p>
+        <h2 id="result-title">Dit CPR er i databasen</h2>
+        <p id="result-lead"></p>
+      </div>
+
+      <dl class="facts" id="facts"></dl>
+
+      <article class="breach">
+        <h3>Fundet i læk</h3>
+        <div class="breach-card">
+          <div>
+            <p class="breach-name">CPR-systemet · Oktober 2026</p>
+            <p class="breach-meta">~8,8 mio. borgere · navn, adresse, CPR</p>
+          </div>
+          <p class="breach-copy">
+            Uvedkommende havde i ti dage adgang til CPR-oplysninger.
+            Vores database har naturligvis “genereret” en milliard numre
+            for at følge med — og dit er selvfølgelig med.
+          </p>
+          <a
+            class="breach-link"
+            href="https://nyheder.tv2.dk/live/samfund/2026-10-05-cpr-numre-kompromitteret"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Læs mere hos TV 2 →
+          </a>
+        </div>
+      </article>
+
+      <button type="button" class="again" id="again">Tjek et andet nummer</button>
+    </section>
+
+    <section class="stats" aria-label="Statistik">
+      <div class="stat">
+        <span class="stat-num" data-count="1000000000">0</span>
+        <span class="stat-label">pwnede CPR-numre</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" data-count="8800000">0</span>
+        <span class="stat-label">rigtige borgere i nyheden</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" data-count="10">0</span>
+        <span class="stat-label">dage uden invitation</span>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>
+      Inspireret af
+      <a href="https://haveibeenpwned.com/" target="_blank" rel="noopener noreferrer">Have I Been Pwned</a>
+      og dagens CPR-nyhed.
+      Indtast ikke rigtige personoplysninger. Vi gemmer intet.
+    </p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
